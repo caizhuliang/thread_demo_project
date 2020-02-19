@@ -1,5 +1,8 @@
 package com.czl.thread;
 
+/**
+ * 这个例子能看出高并发时，会出现票超卖的情况（出售大于库存）
+ */
 public class ThreadDemo1 {
 
 	/**

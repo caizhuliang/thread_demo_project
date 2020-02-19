@@ -1,5 +1,8 @@
 package com.czl.thread;
 
+/**
+ * 这个例子能看出高并发时，通过同步代码块能避免超卖的情况
+ */
 public class ThreadDemo2 {
 
 	public static void main(String[] args) {
