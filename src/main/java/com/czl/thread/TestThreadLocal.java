@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class TestThreadLocal {
 
-	private ThreadLocal<Integer> threadLocal = new ThreadLocal<Integer>();
+	private ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
 
 	public static void main(String[] args) {
 		TestThreadLocal instance = new TestThreadLocal();
