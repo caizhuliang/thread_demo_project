@@ -1,22 +1,16 @@
 package com.czl.collection;
 
+import com.czl.entity.User;
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.czl.entity.User;
-
-/*
+/**
  * Map,HashMap,Set,HashSet,List,ArrayList，这些是线程不安全的，而且在迭代时，是不能修改的（否则报错）。
- */
-/*
  * ConcurrentHashMap，ConcurrentSkipListMap，ConcurrentSkipListSet，CopyOnWriteArrayList，CopyOnWriteArraySet是线程安全的。
- */
-/*
  * ConcurrentHashMap:不可以指定key的顺序
  * ConcurrentSkipListMap:可以指定key的顺序
- */
-/*
  * CopyOnWriteArrayList(CopyOnWriteArraySet)：如果要一边迭代，一边修改，可以用CopyOnWriteArrayList(CopyOnWriteArraySet)
  */
 public class CollectionModifyExectionTest {

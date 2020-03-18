@@ -11,7 +11,7 @@ public class BlockingQueueTest {
 	public static void main(String[] args) {
 		// 这里限制了队列只有3个空间，放满就阻塞。一旦不是满的了，立马就又放入
 		final BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(3);
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 5; i++) {
 			new Thread() {
 				public void run() {
 					while (true) {
