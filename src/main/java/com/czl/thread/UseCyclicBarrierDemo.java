@@ -44,6 +44,7 @@ public class UseCyclicBarrierDemo {
 			service.execute(runnable);// 起线程
 		}
 		service.shutdown();// 关闭线程池，不再接受新任务
+		System.out.println("--------------------------------- end ----------------------------------");
 	}
 
 }

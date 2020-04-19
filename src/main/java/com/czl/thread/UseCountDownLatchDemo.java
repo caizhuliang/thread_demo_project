@@ -15,22 +15,18 @@ public class UseCountDownLatchDemo {
 		final CountDownLatch cdEnd = new CountDownLatch(3);// 用于通知主线程3个线程均到达终点
 		// 起3个子线程
 		for (int i = 0; i < 3; i++) {
-			Runnable runnable = new Runnable() {
-
-				@Override
-				public void run() {
-					try {
-						System.out.println("线程" + Thread.currentThread().getName() + "准备就绪");
-						cdStart.await();// 等待计数器cdStart到0
-						// cdStart到0了，往下执行
-						System.out.println("线程" + Thread.currentThread().getName() + "到达终点");
+			Runnable runnable = () -> {
+        try {
+          System.out.println("线程" + Thread.currentThread().getName() + "准备就绪");
+          cdStart.await();// 等待计数器cdStart到0
+          // cdStart到0了，往下执行
+          System.out.println("线程" + Thread.currentThread().getName() + "到达终点");
 //						Thread.sleep((long) (Math.random() * 10000));
-						cdEnd.countDown();// 计数器cdEnd减1
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			};
+          cdEnd.countDown();// 计数器cdEnd减1
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+      };
 			service.execute(runnable);// 起线程
 		}
 		try {
