@@ -14,25 +14,21 @@ public class ThreadScopeShareDataTest {
 	public static void main(String[] args) {
 		for (int i = 0; i < 2; i++) {
 			// 起新的线程
-			new Thread(new Runnable() {
+			new Thread(() -> {
+        // 获得一个int类型的随机数，这个例子要线程内部共享该数据。线程相同时，该数据相同；反则反之
+        int data = new Random().nextInt();
+        map.put(Thread.currentThread(), data);
+        System.out.println(Thread.currentThread().getName()
+            + ":data is " + data);
 
-				@Override
-				public void run() {
-					// 获得一个int类型的随机数，这个例子要线程内部共享该数据。线程相同时，该数据相同；反则反之
-					int data = new Random().nextInt();
-					map.put(Thread.currentThread(), data);
-					System.out.println(Thread.currentThread().getName()
-							+ ":data is " + data);
+        // 打印A类获得当前线程的共享数据
+        System.out.println(Thread.currentThread().getName()
+            + "-A:data is " + new A().getData());
 
-					// 打印A类获得当前线程的共享数据
-					System.out.println(Thread.currentThread().getName()
-							+ "-A:data is " + new A().getData());
-
-					// 打印B类获得当前线程的共享数据
-					System.out.println(Thread.currentThread().getName()
-							+ "-B:data is " + new B().getData());
-				}
-			}).start();
+        // 打印B类获得当前线程的共享数据
+        System.out.println(Thread.currentThread().getName()
+            + "-B:data is " + new B().getData());
+      }).start();
 		}
 	}
 

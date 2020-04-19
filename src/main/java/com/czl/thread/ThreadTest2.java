@@ -8,6 +8,7 @@ public class ThreadTest2 implements Runnable {
 	private static int tickets = 100;
 	String method = "";
 
+	@Override
 	public void run() {
 		if (method.equals("method")) {
 			while (true) {
